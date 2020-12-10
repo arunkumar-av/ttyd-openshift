@@ -10,6 +10,7 @@ ENV KUBECONFIG=/workspace/kubeconfig
 
 
 RUN touch /workspace/kubeconfig && chmod 664 /workspace/kubeconfig
+RUN mkdir -p /.m2/repository && chmod 775 /.m2/repository
 
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm && \
       microdnf -y install gzip tar wget jq vim-enhanced nano git maven && \
